@@ -22,12 +22,12 @@ Việc di chuyển và định hướng trong không gian kín như lớp học 
 
 
 ## ⚙️ Kiến Trúc Hệ Thống (System Architecture)
-
-[ Smartphone: Eye/Ear ] --(Mạng Local Wi-Fi / WebSockets/HTTP)--> [ Laptop Server: Brain ]
+[ Smartphone: Eye/Ear ] --(Stream Video Frames qua WebSockets)--> [ Laptop Server: Brain ]
 ▲                                                                  │
-└───────────────────(Phản hồi Âm thanh / Lệnh)─────────────────────┘
-
-
+│                                                           (YOLOv8 Inference)
+│                                                                  │
+└─────────────────(Hạ lệnh phát Audio Cảnh báo)────────────────────▼
+---
 
 
 1.  **Frontend (Mobile Web):** HTML5 Camera API (`getUserMedia`), Socket.io-client gửi frame ảnh dạng Base64/Binary, Web Audio API đảm nhận phát âm thanh cảnh báo.
